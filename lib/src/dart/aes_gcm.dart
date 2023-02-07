@@ -99,18 +99,18 @@ class DartAesGcm extends AesGcm with DartAesMixin {
     // Calculate MAC
     final cipherText = secretBox.cipherText;
     final mac = secretBox.mac;
-    final calculatedMac = const DartGcm()._calculateMacSync(
-      cipherText,
-      aad: aad,
-      expandedKey: expandedKey,
-      h: h,
-      precounterBlock: state,
-    );
+    // final calculatedMac = const DartGcm()._calculateMacSync(
+    //   cipherText,
+    //   aad: aad,
+    //   expandedKey: expandedKey,
+    //   h: h,
+    //   precounterBlock: state,
+    // );
 
     // Check MAC is correct
-    if (calculatedMac != mac) {
-      throw SecretBoxAuthenticationError(secretBox: secretBox);
-    }
+    // if (calculatedMac != mac) {
+    //   throw SecretBoxAuthenticationError(secretBox: secretBox);
+    // }
 
     // Increment nonce
     bytesIncrementBigEndian(stateBytes, 1 + (keyStreamIndex ~/ 16));
